@@ -1,4 +1,4 @@
-// * The lowercase letters of the alphabet follow the ASCII sequence from 97 to 127
+// * The lowercase letters of the alphabet follow the ASCII sequence from 97 to 122
 
 export const encode = (text: string): string => {
   const encodedText = toCipherAscii(text).reduce(
