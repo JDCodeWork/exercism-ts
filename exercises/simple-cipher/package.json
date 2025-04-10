@@ -1,8 +1,7 @@
 {
-  "name": "exercism-ts",
-  "workspaces": [
-    "exercises/*"
-  ],
+  "name": "simple-cipher",
+  "module": "index.ts",
+  "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
   },
