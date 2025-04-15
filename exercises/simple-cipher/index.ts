@@ -30,7 +30,7 @@ export class SimpleCipher {
       const encodedCode = code + positionsToMove[idx]
 
       if (encodedCode > this.LAST_CHAR_CODE) {
-        return encodedCode % this.LAST_CHAR_CODE + this.FIRST_CHAR_CODE
+        return encodedCode % (this.LAST_CHAR_CODE + 1) + this.FIRST_CHAR_CODE
       }
 
       return encodedCode
@@ -47,7 +47,7 @@ export class SimpleCipher {
       const encodedCode = code - positionsToMove[idx]
 
       if (encodedCode < this.FIRST_CHAR_CODE) {
-        return this.LAST_CHAR_CODE - encodedCode
+        return this.LAST_CHAR_CODE - (this.FIRST_CHAR_CODE - encodedCode) + 1
       }
 
       return encodedCode
@@ -72,13 +72,9 @@ export class SimpleCipher {
         tempKey = this.key.repeat(diff)
       }
 
-      return tempKey.charCodeAt(idx) - this.FIRST_CHAR_CODE
+      const posToMove = tempKey.charCodeAt(idx) - this.FIRST_CHAR_CODE
+
+      return posToMove
     })
   }
 }
-
-const simpleCipher = new SimpleCipher("abcdefghij")
-
-console.log(simpleCipher.encode("aaaaaaaaaa"));
-console.log(simpleCipher.decode("abcdefghij"));
-

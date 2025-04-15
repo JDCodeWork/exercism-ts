@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'bun:test'
+
 import { SimpleCipher } from '.'
 
 describe('Random key generation', () => {
@@ -81,7 +82,7 @@ describe('Substitution cipher', () => {
     expect(simpleCipher.decode('zabcdefghi')).toEqual('zzzzzzzzzz')
   })
 
-  it('can encode messages longer than the key"', () => {
+  it('can encode messages longer than the key', () => {
     expect(new SimpleCipher('abc').encode('iamapandabear')).toEqual(
       'iboaqcnecbfcr'
     )
